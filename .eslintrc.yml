@@ -1,0 +1,111 @@
+env:
+  browser: true
+  node: true
+  es6: true
+extends:
+  - 'eslint:recommended'
+  - 'plugin:vue/essential'
+  - 'prettier'
+globals:
+  Atomics: readonly
+  SharedArrayBuffer: readonly
+parserOptions:
+  ecmaVersion: 2018
+  sourceType: module
+plugins:
+  - vue
+rules:
+  indent:
+    - error
+    - tab
+  linebreak-style:
+    - error
+    - unix
+  quotes:
+    - error
+    - single
+  semi:
+    - error
+    - always
+  no-warning-comments: warn
+  no-underscore-dangle:
+    - error
+    -
+      allowAfterThis: true
+  array-callback-return: error
+  block-scoped-var: error
+  curly: error
+  default-case:
+    - error
+    -
+      commentPattern: "no special comment allowed"
+  dot-location:
+    - error
+    - property
+  dot-notation: error
+  eqeqeq:
+    - error
+    - always
+    -
+      null: ignore
+  no-caller: error
+  no-div-regex: error
+  no-else-return: error
+  no-empty-function: error
+  no-eval: error
+  no-extend-native: error
+  no-floating-decimal: error
+  no-implicit-coercion:
+    - error
+    -
+      allow:
+       - "!!"
+  no-implicit-globals: error
+  no-implied-eval: error
+  no-invalid-this: error
+  no-labels: error
+  no-lone-blocks: error
+  no-loop-func: error
+  no-multi-spaces: error
+  semi: error
+  no-extra-parens:
+    - error
+    - all
+    -
+      nestedBinaryExpressions: false
+  comma-dangle:
+    - error
+    - never
+  quotes:
+    - error
+    - single
+    -
+      avoidEscape: true
+  no-new-func: error
+  no-new-wrappers: error
+  no-restricted-properties: error
+  no-return-assign:
+    - error
+    - always
+  no-return-await: error
+  no-script-url: error
+  no-self-compare: error
+  no-sequences: error
+  no-throw-literal: error
+  no-unmodified-loop-condition: error
+  no-unused-expressions:
+    - error
+    -
+      allowShortCircuit: true
+  no-useless-call: error
+  no-useless-concat: error
+  no-useless-return: error
+  no-void: error
+  no-with: error
+  radix:
+    - error
+    - as-needed
+  no-shadow:
+    - error
+    -
+      hoist: all
