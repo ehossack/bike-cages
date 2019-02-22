@@ -1,0 +1,36 @@
+{
+  "name": "bike-cages",
+  "version": "0.0.1",
+  "description": "App for UBC Bike Cage Registration",
+  "main": "index.js",
+  "repository": "git@bitbucket.org:ubcbikecoop/bike-cages.git",
+  "author": "Étienne H <rfc2324c418@gmail.com>",
+  "license": "GPL-3.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "test": "vue-cli-service test:unit"
+  },
+  "dependencies": {
+    "vue": "^2.6.6",
+    "vue-class-component": "^6.0.0",
+    "vue-property-decorator": "^7.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^23.1.4",
+    "@vue/cli-plugin-babel": "^3.4.0",
+    "@vue/cli-plugin-typescript": "^3.4.0",
+    "@vue/cli-plugin-unit-jest": "^3.4.0",
+    "@vue/cli-service": "^3.4.0",
+    "@vue/test-utils": "^1.0.0-beta.20",
+    "babel-core": "7.0.0-bridge.0",
+    "fibers": "^3.1.1",
+    "sass": "^1.16.0",
+    "sass-loader": "^7.1.0",
+    "ts-jest": "^23.0.0",
+    "typescript": "^3.0.0",
+    "vue-template-compiler": "^2.5.21"
+  }
+}
