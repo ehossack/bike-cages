@@ -20,8 +20,10 @@ import InputDetails from './components/InputDetails.vue';
   }
 })
 export default class App extends Vue {
-  @Prop()
-  public inError: boolean = false;
+  @Prop({
+    default: false
+  })
+  public inError!: boolean;
 }
 </script>
 

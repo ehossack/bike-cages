@@ -1,6 +1,7 @@
 <template>
   <div>
-    <b-form @submit="onSubmit" @reset="onReset" v-if="show">
+    <b-form @submit.prevent="onSubmit" @reset.prevent="onReset" v-if="shouldRenderForm
+    ">
       <b-form-group
         id="exampleInputGroup1"
         label="Email address:"
@@ -57,22 +58,21 @@ class FormData {
 export default class InputDetails extends Vue {
   private form = new FormData();
   private foods = [{ text: 'Select One', value: null }, 'Carrots', 'Beans', 'Tomatoes', 'Corn'];
-  private show = true;
+  private shouldRenderForm = true;
 
-  protected onSubmit($evt: Event): void {
-    $evt.preventDefault();
+  protected onSubmit(): void {
     alert(JSON.stringify(this.form));
   }
 
-  protected onReset($evt: Event) {
-    $evt.preventDefault();
-    /* Reset our form values */
+  protected onReset(): void {
     this.form = new FormData();
+    this.resetFormStateInBrowser();
+  }
 
-    /* Trick to reset/clear native browser form validation state */
-    this.show = false;
+  private resetFormStateInBrowser(): void {
+    this.shouldRenderForm = false;
     this.$nextTick(() => {
-      this.show = true;
+      this.shouldRenderForm = true;
     });
   }
 }
