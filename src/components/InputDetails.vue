@@ -43,92 +43,42 @@
   </div>
 </template>
 
-<script>
-export default {
-	data() {
-		return {
-			form: {
-				email: "",
-				name: "",
-				food: null,
-				checked: []
-			},
-			foods: [{ text: "Select One", value: null }, "Carrots", "Beans", "Tomatoes", "Corn"],
-			show: true
-		};
-	},
-	methods: {
-		onSubmit(evt) {
-			evt.preventDefault();
-			alert(JSON.stringify(this.form));
-		},
-		onReset(evt) {
-			evt.preventDefault();
-			/* Reset our form values */
-			this.form.email = "";
-			this.form.name = "";
-			this.form.food = null;
-			this.form.checked = [];
-			/* Trick to reset/clear native browser form validation state */
-			this.show = false;
-			this.$nextTick(() => {
-				this.show = true;
-			});
-		}
-	}
-};
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator';
+
+class FormData {
+  public email = '';
+  public name = '';
+  public food: string | null = null;
+  public checked: string[] = [];
+}
+
+@Component({})
+export default class InputDetails extends Vue {
+  private form = new FormData();
+  private foods = [{ text: 'Select One', value: null }, 'Carrots', 'Beans', 'Tomatoes', 'Corn'];
+  private show = true;
+
+  protected onSubmit($evt: Event): void {
+    $evt.preventDefault();
+    alert(JSON.stringify(this.form));
+  }
+
+  protected onReset($evt: Event) {
+    $evt.preventDefault();
+    /* Reset our form values */
+    this.form = new FormData();
+
+    /* Trick to reset/clear native browser form validation state */
+    this.show = false;
+    this.$nextTick(() => {
+      this.show = true;
+    });
+  }
+}
 </script>
 
-<script lang="ts">
-export default {
-	data() {
-		return {
-			form: {
-				email: "",
-				name: "",
-				food: null,
-				checked: []
-			},
-			foods: [{ text: "Select One", value: null }, "Carrots", "Beans", "Tomatoes", "Corn"],
-			show: true
-		};
-	},
-	methods: {
-		onSubmit(evt) {
-			evt.preventDefault();
-			alert(JSON.stringify(this.form));
-		},
-		onReset(evt) {
-			evt.preventDefault();
-			/* Reset our form values */
-			this.form.email = "";
-			this.form.name = "";
-			this.form.food = null;
-			this.form.checked = [];
-			/* Trick to reset/clear native browser form validation state */
-			this.show = false;
-			this.$nextTick(() => {
-				this.show = true;
-			});
-		}
-	}
-};
-</script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-h3 {
-	margin: 40px 0 0;
-}
-ul {
-	list-style-type: none;
-	padding: 0;
-}
-li {
-	display: inline-block;
-	margin: 0 10px;
-}
-a {
-	color: #42b983;
-}
 </style>

@@ -1,29 +1,36 @@
 <template>
   <div id="app">
-    <AboutTheCages/>
-    <InputDetails/>
+    <div v-if="inError">Oops!</div>
+    <div v-else>
+      <AboutTheCages/>
+      <InputDetails/>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
-import HelloWorld from "./components/HelloWorld.vue";
+import { Component, Vue, Prop } from 'vue-property-decorator';
+import AboutTheCages from './components/AboutTheCages.vue';
+import InputDetails from './components/InputDetails.vue';
 
 @Component({
-	components: {
-		HelloWorld
-	}
+  components: {
+    AboutTheCages,
+    InputDetails
+  }
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  @Prop()
+  public inError: boolean = false;
+}
 </script>
 
 <style lang="scss">
 #app {
-	font-family: "Avenir", Helvetica, Arial, sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	text-align: center;
-	color: #2c3e50;
-	margin-top: 60px;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+  margin: 5em;
 }
-</style>
+</style> 
