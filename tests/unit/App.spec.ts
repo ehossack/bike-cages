@@ -1,5 +1,5 @@
 import App from '@/App.vue';
-import AboutTheCages from '@/components/AboutTheCages.vue';
+import About from '@/components/AboutTheCages.vue';
 import InputDetails from '@/components/InputDetails.vue';
 import { shallowMount } from '@vue/test-utils';
 
@@ -10,16 +10,16 @@ describe('App.vue', () => {
     const isVueInstance = wrapper.isVueInstance();
 
     expect(isVueInstance).toBeTruthy();
-    expect(wrapper.find(AboutTheCages).exists()).toBeTruthy();
+    expect(wrapper.find(About).exists()).toBeTruthy();
     expect(wrapper.find(InputDetails).exists()).toBeTruthy();
   });
 
   it('shows error on error', () => {
     const wrapper = shallowMount(App);
 
-    wrapper.setProps({ inError: true });
+    wrapper.setData({ inError: true });
 
-    expect(wrapper.find(AboutTheCages).exists()).toBeFalsy();
+    expect(wrapper.find(About).exists()).toBeFalsy();
     expect(wrapper.find(InputDetails).exists()).toBeFalsy();
     expect(wrapper.html()).toContain('Oops!');
   });
