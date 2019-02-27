@@ -1,8 +1,9 @@
 <template>
   <div id="app">
     <div v-if="inError">Oops!</div>
-    <div class="mt-5" v-else>
+    <div class="mt-5 mb-5" v-else>
       <About :description="aboutText"/>
+      <Map/>
       <InputDetails v-if="!user" v-on:submit-user="handleSubmitUser"/>
       <div class="submitted" v-if="user">{{submitText}}</div>
     </div>
@@ -12,14 +13,16 @@
 <script lang="ts">
 import Vue from 'vue';
 import Component from 'vue-class-component';
-import About from './components/AboutTheCages.vue';
-import InputDetails from './components/InputDetails.vue';
+import About from '@/components/AboutTheCages.vue';
+import Map from '@/components/Map.vue';
+import InputDetails from '@/components/InputDetails.vue';
 import { Prop } from 'vue-property-decorator';
 import CageUser from '@/models/CageUser';
 
 @Component({
   components: {
     About,
+    Map,
     InputDetails
   }
 })
@@ -55,7 +58,7 @@ export default class App extends Vue {
     if (!user) {
       throw Error('user is not defined');
     }
-    return `Thanks, ${user.firstName}, your access should come in 48 hours`;
+    return `Thanks ${user.firstName}, your access should come in 48 hours`;
   }
 
   protected handleSubmitUser(user: CageUser): void {
@@ -82,4 +85,5 @@ export default class App extends Vue {
     font-style: italic;
   }
 }
-</style> 
+</style>
+

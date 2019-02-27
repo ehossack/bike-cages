@@ -1,10 +1,15 @@
 <template>
-  <div class="container mt-4 input-form">
+  <div class="card mt-4 input-form">
     <div class="mb-2 ml-2" v-if="shouldRenderForm">
       <small>* Required</small>
     </div>
-    <b-form @submit.prevent="onSubmit" @reset.prevent="onReset" v-if="shouldRenderForm
-    ">
+    <b-form
+      class="card-body pl-4 pr-4"
+      @submit.prevent="onSubmit"
+      @reset.prevent="onReset"
+      v-if="shouldRenderForm
+    "
+    >
       <b-form-group label="Your Name:" label-for="firstName">
         <b-form-input
           id="firstName"
@@ -75,6 +80,7 @@
 
       <b-button
         type="submit"
+        name="submit"
         :disabled="!cageUser.isValid()"
         :variant="cageUser.isValid() && confirmEmail ? 'primary' : 'outline-primary'"
         class="mr-1"
@@ -123,6 +129,13 @@ export default class InputDetails extends Vue {
 
   protected onReset(): void {
     this.resetFormStateInBrowser();
+    this.resetData();
+  }
+
+  private resetData(): void {
+    this.cageUser = new CageUser();
+    this.confirmEmail = '';
+    this.$validator.reset();
   }
 
   private resetData(): void {
@@ -148,11 +161,6 @@ small {
 label::after {
   content: ' *';
   color: $red-color;
-}
-</style>
-<style lang="scss" scoped>
-.input-form {
-  padding: 0 3em;
 }
 </style>
 

@@ -1,7 +1,7 @@
 export default class CageUser {
   public lastName = '';
   public firstName = '';
-  public studentStaffNumber!: number;
+  public studentStaffNumber!: number | string;
   public email = '';
 
   public copy(): CageUser {
@@ -11,7 +11,7 @@ export default class CageUser {
     if (!this.isValid()) {
       throw new Error('studentStaffNumber should be defined');
     }
-    copy.studentStaffNumber = this.studentStaffNumber;
+    copy.studentStaffNumber = Number(this.studentStaffNumber);
     copy.email = this.email;
     return copy;
   }
