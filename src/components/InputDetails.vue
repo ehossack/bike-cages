@@ -138,12 +138,6 @@ export default class InputDetails extends Vue {
     this.$validator.reset();
   }
 
-  private resetData(): void {
-    this.cageUser = new CageUser();
-    this.confirmEmail = '';
-    this.$validator.reset();
-  }
-
   private resetFormStateInBrowser(): void {
     this.shouldRenderForm = false;
     this.$nextTick(() => {
