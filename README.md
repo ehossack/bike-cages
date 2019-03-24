@@ -1,34 +1,39 @@
 # bike-cages
 
+A form to allow users to register for bike cages at UBC
+
 ## Project setup
+
 ```
 yarn install
 ```
 
 ### Compiles and hot-reloads for development
+
 ```
-yarn run serve
+yarn serve
 ```
 
 ### Compiles and minifies for production
+
 ```
-yarn run build
+yarn build
 ```
 
-### Run your tests
+### Run tests
+
 ```
-yarn run test
+yarn test
 ```
 
-### Lints and fixes files
+### Format
+
 ```
-yarn run lint
+yarn format:check
 ```
 
-### Run your unit tests
-```
-yarn run test:unit
-```
+or to actually change formatting:
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+```
+yarn format:write
+```
