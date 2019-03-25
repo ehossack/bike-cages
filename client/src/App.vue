@@ -63,6 +63,7 @@ export default class App extends Vue {
 
   protected handleSubmitUser(user: CageUser): void {
     this.user = user.copy();
+    console.log(this.user.toJson()); // tslint:disable-line
   }
 }
 </script>

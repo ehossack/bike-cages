@@ -8,9 +8,11 @@
   "license": "GPL-3.0",
   "private": true,
   "scripts": {
-    "serve:client": "vue-cli-service serve client/src/main.ts",
-    "build:client": "vue-cli-service build",
-    "lint:client": "vue-cli-service lint",
+    "test": "vue-cli-service test:unit",
+    "dev": "vue-cli-service serve client/src/main.ts",
+    "build": "vue-cli-service build client/src/main.ts",
+    "lint": "vue-cli-service lint",
+    "dev:client": "vue-cli-service serve client/src/main.ts",
     "test:client": "vue-cli-service test:unit",
     "format:check": "prettier -c '**/*.js' '**/*.ts' '**/*.json'",
     "format:write": "prettier -c '**/*.js' '**/*.ts' '**/*.json'"
@@ -43,6 +45,7 @@
     "prettier": "^1.16.4",
     "sass": "^1.16.0",
     "sass-loader": "^7.1.0",
+    "serve": "^10.1.2",
     "ts-jest": "^23.0.0",
     "typescript": "^3.0.0",
     "vue-template-compiler": "^2.5.21",

@@ -2,6 +2,8 @@
 
 A form to allow users to register for bike cages at UBC
 
+## Commands
+
 ## Project setup
 
 ```
@@ -11,7 +13,7 @@ yarn install
 ### Compiles and hot-reloads for development
 
 ```
-yarn serve
+yarn dev
 ```
 
 ### Compiles and minifies for production
@@ -24,6 +26,12 @@ yarn build
 
 ```
 yarn test
+```
+
+### Lint
+
+```
+yarn build
 ```
 
 ### Format

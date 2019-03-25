@@ -81,8 +81,8 @@
       <b-button
         type="submit"
         name="submit"
-        :disabled="!cageUser.isValid()"
-        :variant="cageUser.isValid() && confirmEmail ? 'primary' : 'outline-primary'"
+        :disabled="!dataIsComplete()"
+        :variant="dataIsComplete() ? 'primary' : 'outline-primary'"
         class="mr-1"
       >Submit</b-button>
       <b-button type="reset" variant="outline-secondary">Clear</b-button>
@@ -143,6 +143,10 @@ export default class InputDetails extends Vue {
     this.$nextTick(() => {
       this.shouldRenderForm = true;
     });
+  }
+
+  private dataIsComplete(): boolean {
+    return this.cageUser.isValid() && !!this.confirmEmail && this.confirmEmail === this.cageUser.email;
   }
 }
 </script>

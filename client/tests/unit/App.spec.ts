@@ -25,11 +25,24 @@ describe('App.vue', () => {
     expect(wrapper.html()).toContain('Oops!');
   });
 
+  it('validates user', () => {
+    const wrapper = shallowMount(App);
+    const app = wrapper.vm as any;
+    const user = new CageUser();
+
+    const submitInvalid = () => app.handleSubmitUser(user);
+
+    expect(submitInvalid).toThrowError();
+  });
+
   it('does not provide submitText without user', () => {
     const wrapper = shallowMount(App);
     const app = wrapper.vm as any;
     const user = new CageUser();
+    user.firstName = 'hi';
+    user.lastName = 'hi';
     user.studentStaffNumber = 123;
+    user.email = 'hi';
 
     app.handleSubmitUser(user);
 

@@ -39,7 +39,7 @@ describe('InputDetails.vue', () => {
     }
     function assertErrorLoggedAsObject(error: any | undefined) {
       expect(typeof error).toEqual('object');
-      expect(error.message).toMatch(/studentStaffNumber should be defined/);
+      expect(error.message).toMatch(/Missing data for user: /);
       done();
     }
   });
@@ -47,8 +47,7 @@ describe('InputDetails.vue', () => {
   it('emits submit-user on submit', async function test(done) {
     const wrapper = factory();
     const emitted = wrapper.emitted();
-    const user = new CageUser();
-    user.studentStaffNumber = setStudentStaffNumberIn(wrapper);
+    const user = setAllUserData(wrapper);
 
     await wrapper.vm.$nextTick();
     wrapper.find('form').trigger('submit');
@@ -62,7 +61,7 @@ describe('InputDetails.vue', () => {
 
   it('removes and re-adds on reset', async function test(done) {
     const wrapper = factory();
-    setStudentStaffNumberIn(wrapper);
+    setAllUserData(wrapper);
 
     wrapper.find('form').trigger('reset');
     await wrapper.vm.$nextTick();
@@ -72,12 +71,42 @@ describe('InputDetails.vue', () => {
     done();
   });
 
-  function setStudentStaffNumberIn(wrapper: Wrapper<Vue>) {
-    const numberToSet = 1234567;
-    const numberInput = numberInputIn(wrapper).element as HTMLInputElement;
-    numberInput.value = String(numberToSet);
+  it('does not enable submit until user is valid and email confirmed', async function test(done) {
+    const wrapper = factory();
+    setAllUserData(wrapper);
+    const getInputButton = () => wrapper.find('[name="submit"]').element as HTMLInputElement;
+    expect(getInputButton().disabled).toBeTruthy();
+
+    (wrapper.find('input[name="email"]').element as HTMLInputElement).value = 'email@example.com';
+    wrapper.find('input[name="email"]').trigger('change');
+
+    await wrapper.vm.$nextTick();
+    expect(getInputButton().disabled).toBeTruthy();
+
+    (wrapper.find('input[name="confirmEmail"]').element as HTMLInputElement).value = 'email@example.com';
+    wrapper.find('input[name="confirmEmail"]').trigger('change');
+
+    await wrapper.vm.$nextTick();
+    expect(getInputButton().disabled).toBeFalsy();
+    done();
+  });
+
+  function setAllUserData(wrapper: Wrapper<Vue>): CageUser {
+    const user = new CageUser();
+    user.firstName = 'first';
+    user.lastName = 'last';
+    user.email = 'email';
+    user.studentStaffNumber = 1234567;
+    (numberInputIn(wrapper).element as HTMLInputElement).value = String(user.studentStaffNumber);
+    (wrapper.find('[name="first"]').element as HTMLInputElement).value = user.firstName;
+    (wrapper.find('[name="last"]').element as HTMLInputElement).value = user.lastName;
+    (wrapper.find('[name="email"]').element as HTMLInputElement).value = user.email;
+
     numberInputIn(wrapper).trigger('change');
-    return numberToSet;
+    wrapper.find('[name="first"]').trigger('change');
+    wrapper.find('[name="last"]').trigger('change');
+    wrapper.find('[name="email"]').trigger('change');
+    return user;
   }
 
   function numberInputIn(wrapper: Wrapper<Vue>) {
