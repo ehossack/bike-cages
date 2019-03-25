@@ -13,11 +13,11 @@
 <script lang="ts">
 import Vue from 'vue';
 import Component from 'vue-class-component';
-import About from '@/components/AboutTheCages.vue';
-import Map from '@/components/Map.vue';
-import InputDetails from '@/components/InputDetails.vue';
+import About from '@client/components/AboutTheCages.vue';
+import Map from '@client/components/Map.vue';
+import InputDetails from '@client/components/InputDetails.vue';
 import { Prop } from 'vue-property-decorator';
-import CageUser from '@/models/CageUser';
+import CageUser from '@client/models/CageUser';
 
 @Component({
   components: {

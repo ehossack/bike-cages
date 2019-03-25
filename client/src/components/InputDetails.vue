@@ -92,7 +92,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import CageUser from '@/models/CageUser';
+import CageUser from '@client/models/CageUser';
 import { Component, Emit } from 'vue-property-decorator';
 
 @Component

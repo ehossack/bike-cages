@@ -1,5 +1,5 @@
-import Map from '@/components/Map.vue';
-import { shallowMount, Wrapper, createLocalVue, mount } from '@vue/test-utils';
+import Map from '@client/components/Map.vue';
+import { createLocalVue, mount, Wrapper } from '@vue/test-utils';
 import BootstrapVue from 'bootstrap-vue';
 import Vue from 'vue';
 

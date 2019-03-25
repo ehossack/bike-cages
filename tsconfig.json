@@ -13,10 +13,17 @@
     "baseUrl": ".",
     "types": ["webpack-env", "jest"],
     "paths": {
-      "@/*": ["src/*"]
+      "@client/*": ["client/src/*"],
+      "@server/*": ["server/src/*"]
     },
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "tests/**/*.ts", "tests/**/*.tsx"],
+  "include": [
+    "./**/*.ts",
+    "client/src/**/*.tsx",
+    "client/src/**/*.vue",
+    "client/tests/**/*.ts",
+    "client/tests/**/*.tsx"
+  ],
   "exclude": ["node_modules"]
 }

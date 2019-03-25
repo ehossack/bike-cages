@@ -1,8 +1,8 @@
-import App from '@/App.vue';
-import About from '@/components/AboutTheCages.vue';
-import InputDetails from '@/components/InputDetails.vue';
+import App from '@client/App.vue';
+import About from '@client/components/AboutTheCages.vue';
+import InputDetails from '@client/components/InputDetails.vue';
 import { shallowMount } from '@vue/test-utils';
-import CageUser from '@/models/CageUser';
+import CageUser from '@client/models/CageUser';
 
 describe('App.vue', () => {
   it('renders the vue', () => {

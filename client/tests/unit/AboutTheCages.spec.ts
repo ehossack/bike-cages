@@ -1,4 +1,4 @@
-import About from '@/components/AboutTheCages.vue';
+import About from '@client/components/AboutTheCages.vue';
 import { shallowMount } from '@vue/test-utils';
 
 describe('AboutTheCages.vue', () => {

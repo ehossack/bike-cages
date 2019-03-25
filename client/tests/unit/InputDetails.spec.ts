@@ -1,5 +1,5 @@
-import InputDetails from '@/components/InputDetails.vue';
-import CageUser from '@/models/CageUser';
+import InputDetails from '@client/components/InputDetails.vue';
+import CageUser from '@client/models/CageUser';
 import { createLocalVue, mount, Wrapper } from '@vue/test-utils';
 import BootstrapVue from 'bootstrap-vue';
 import VeeValidate from 'vee-validate';

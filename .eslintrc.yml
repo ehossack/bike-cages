@@ -17,28 +17,23 @@ plugins:
 rules:
   indent:
     - error
-    - tab
+    - 2
   linebreak-style:
     - error
     - unix
-  quotes:
-    - error
-    - single
   semi:
     - error
     - always
   no-warning-comments: warn
   no-underscore-dangle:
     - error
-    -
-      allowAfterThis: true
+    - allowAfterThis: true
   array-callback-return: error
   block-scoped-var: error
   curly: error
   default-case:
     - error
-    -
-      commentPattern: "no special comment allowed"
+    - commentPattern: 'no special comment allowed'
   dot-location:
     - error
     - property
@@ -46,8 +41,7 @@ rules:
   eqeqeq:
     - error
     - always
-    -
-      null: ignore
+    - null: ignore
   no-caller: error
   no-div-regex: error
   no-else-return: error
@@ -57,9 +51,8 @@ rules:
   no-floating-decimal: error
   no-implicit-coercion:
     - error
-    -
-      allow:
-       - "!!"
+    - allow:
+        - '!!'
   no-implicit-globals: error
   no-implied-eval: error
   no-invalid-this: error
@@ -70,16 +63,14 @@ rules:
   no-extra-parens:
     - error
     - all
-    -
-      nestedBinaryExpressions: false
+    - nestedBinaryExpressions: false
   comma-dangle:
     - error
     - never
   quotes:
     - error
     - single
-    -
-      avoidEscape: true
+    - avoidEscape: true
   no-new-func: error
   no-new-wrappers: error
   no-restricted-properties: error
@@ -94,8 +85,7 @@ rules:
   no-unmodified-loop-condition: error
   no-unused-expressions:
     - error
-    -
-      allowShortCircuit: true
+    - allowShortCircuit: true
   no-useless-call: error
   no-useless-concat: error
   no-useless-return: error
@@ -106,5 +96,4 @@ rules:
     - as-needed
   no-shadow:
     - error
-    -
-      hoist: all
+    - hoist: all
